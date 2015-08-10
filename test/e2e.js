@@ -33,6 +33,7 @@ testing.describe("end to end", function() {
             });
         });
     });
+
     testing.describe("on create todo item", function() {
         testing.it("clears the input field", function() {
             helpers.navigateToSite();
@@ -65,5 +66,25 @@ testing.describe("end to end", function() {
             });
         });
     });
-});
 
+    testing.describe("on delete todo item", function() {
+        testing.it("removes todo item", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.deleteTodo();
+            helpers.getTodoList().then(function(elements) {
+                assert.equal(elements.length, 0);
+            });
+        });
+        testing.it("can be done multiple times", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.addTodo("Another new todo item");
+            helpers.deleteTodo();
+            helpers.deleteTodo();
+            helpers.getTodoList().then(function(elements) {
+                assert.equal(elements.length, 0);
+            });
+        });
+    });
+});

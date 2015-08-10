@@ -42,6 +42,24 @@ function getTodoList(callback) {
     createRequest.send();
 }
 
+function deleteTodo (event) {
+    var deleteRequest = new XMLHttpRequest();
+    var currentID = this.getAttribute("data-id");
+    deleteRequest.open("DELETE", "/api/todo/" + currentID);
+    deleteRequest.send();
+
+    deleteRequest.onload = function() {
+        if (this.status === 200) {
+            //alert("Todo list item deleted");
+            reloadTodoList();
+        }
+        else {
+            error.textContent = "Failed to delete todo list item with ID " +
+            currentID + ".  Reason: " + this.status + " - " + this.responseText;
+        }
+    };
+}
+
 function reloadTodoList() {
     while (todoList.firstChild) {
         todoList.removeChild(todoList.firstChild);
@@ -51,7 +69,13 @@ function reloadTodoList() {
         todoListPlaceholder.style.display = "none";
         todos.forEach(function(todo) {
             var listItem = document.createElement("li");
+            var deleteButton = document.createElement("button");    //BUTTON
+            deleteButton.textContent = "Delete";
+            deleteButton.setAttribute ("id", "delete-todo");        //
+            deleteButton.setAttribute("data-id", todo.id);          //
+            deleteButton.onclick = deleteTodo;                      //
             listItem.textContent = todo.title;
+            listItem.appendChild(deleteButton);                     //
             todoList.appendChild(listItem);
         });
     });

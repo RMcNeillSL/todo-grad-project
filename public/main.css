@@ -10,6 +10,17 @@ header {
     padding: 0.5em 1em;
 }
 
+button {
+    background-color:#1484D5;
+    border: 2px solid #175E91;
+    color: #FFF;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
 section,
 h1 {
     max-width: 1170px;
