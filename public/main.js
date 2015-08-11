@@ -3,6 +3,7 @@ var todoListPlaceholder = document.getElementById("todo-list-placeholder");
 var form = document.getElementById("todo-form");
 var todoTitle = document.getElementById("new-todo");
 var error = document.getElementById("error");
+var countLable = document.getElementById("count-label");
 
 form.onsubmit = function(event) {
     var title = todoTitle.value;
@@ -82,6 +83,7 @@ function reloadTodoList() {
     while (todoList.firstChild) {
         todoList.removeChild(todoList.firstChild);
     }
+    var incomplete = 0;
     todoListPlaceholder.style.display = "block";
     getTodoList(function(todos) {
         todoListPlaceholder.style.display = "none";
@@ -110,7 +112,14 @@ function reloadTodoList() {
 
             listItem.appendChild(deleteButton);
             todoList.appendChild(listItem);
+
+            if (todo.isComplete == false) {
+                incomplete++;
+            }
+
         });
+
+        countLable.textContent = ("Number of incomplete items remaining: " + incomplete);
     });
 }
 
