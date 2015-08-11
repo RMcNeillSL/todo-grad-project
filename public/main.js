@@ -113,7 +113,7 @@ function reloadTodoList() {
             listItem.appendChild(deleteButton);
             todoList.appendChild(listItem);
 
-            if (todo.isComplete == false) {
+            if (todo.isComplete === false) {
                 incomplete++;
             }
 
