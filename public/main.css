@@ -19,7 +19,9 @@ button {
     border-radius: 4px;
     padding: 5px;
     margin-left: 5px;
+    margin-top: 5px;
     margin-bottom: 5px;
+    box-shadow: inset 0 0 10px #000000;
 }
 
 section,
@@ -38,4 +40,8 @@ h1 {
 
 .completed {
     text-decoration: line-through;
+}
+
+#delete-complete {
+    display: NONE;
 }

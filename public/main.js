@@ -4,6 +4,7 @@ var form = document.getElementById("todo-form");
 var todoTitle = document.getElementById("new-todo");
 var error = document.getElementById("error");
 var countLable = document.getElementById("count-label");
+var deleteCompleted = document.getElementById("delete-complete");
 
 form.onsubmit = function(event) {
     var title = todoTitle.value;
@@ -61,6 +62,25 @@ function deleteTodo (event) {
     };
 }
 
+function deleteComplete () {
+    var deleteCompleteRequest = new XMLHttpRequest();
+
+    deleteCompleteRequest.open("DELETE", "/api/todo/");
+    deleteCompleteRequest.send();
+
+    deleteCompleteRequest.onload = function() {
+        if (this.status === 200) {
+            //alert("Completed list items deleted");
+            deleteCompleted.style.display = "none";
+            reloadTodoList();
+        }
+        else {
+            error.textContent = "Failed to delete completed todo list items. Reason: "
+            this.status + " - " + this.responseText;
+        }        
+    };
+}
+
 function completeTodo (event) {
     var completeRequest = new XMLHttpRequest();
     var currentID = this.getAttribute("data-id");
@@ -84,6 +104,7 @@ function reloadTodoList() {
         todoList.removeChild(todoList.firstChild);
     }
     var incomplete = 0;
+    var complete = 0;
     todoListPlaceholder.style.display = "block";
     getTodoList(function(todos) {
         todoListPlaceholder.style.display = "none";
@@ -116,8 +137,15 @@ function reloadTodoList() {
             if (todo.isComplete === false) {
                 incomplete++;
             }
+            else {
+                complete++;
+            }
 
         });
+
+        if (complete > 0) {
+            deleteCompleted.style.display = "inline";
+        }
 
         countLable.textContent = ("Number of incomplete items remaining: " + incomplete);
     });

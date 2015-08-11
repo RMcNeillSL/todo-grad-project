@@ -57,7 +57,7 @@ module.exports = function(port, middleware, callback) {
         }
     });
 
-    //Update
+    // Update
     app.post("/api/todo/:id", function(req, res) {
         var id = req.params.id;
         var existingTodo = getTodo(id);
@@ -72,6 +72,18 @@ module.exports = function(port, middleware, callback) {
             res.sendStatus(404);
         }
 
+    });
+
+    // Delete completed
+    app.delete("/api/todo/", function(req, res) {
+        try {
+            todos = todos.filter(function(todo) {
+                return todo.isComplete == false;
+            });
+            res.sendStatus(200);
+        } catch (err) {
+            res.sendStatus(404);
+        }
     });
 
     function getTodo(id) {
