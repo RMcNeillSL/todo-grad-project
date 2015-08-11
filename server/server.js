@@ -15,7 +15,7 @@ module.exports = function(port, middleware, callback) {
     var todos = [];
 
     // Create
-    app.post("/api/todo", function(req, res) {
+    app.post("/api/todo", function(req, res) {      // TESTED
         var todo = req.body;
         todo.id = latestId.toString();
         todo.isComplete = false;        // Completed field
@@ -26,12 +26,12 @@ module.exports = function(port, middleware, callback) {
     });
 
     // Read
-    app.get("/api/todo", function(req, res) {
+    app.get("/api/todo", function(req, res) {       // TESTED
         res.json(todos);
     });
 
     // Delete
-    app.delete("/api/todo/:id", function(req, res) {
+    app.delete("/api/todo/:id", function(req, res) {    // TESTED
         var id = req.params.id;
         var todo = getTodo(id);
         if (todo) {

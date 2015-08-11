@@ -1,6 +1,7 @@
 var testing = require("selenium-webdriver/testing");
 var assert = require("chai").assert;
 var helpers = require("./e2eHelpers");
+var expect = require("chai").expect;
 
 testing.describe("end to end", function() {
     this.timeout(20000);
@@ -87,13 +88,100 @@ testing.describe("end to end", function() {
             });
         });
     });
-    /*
+
     testing.describe("on complete todo item", function() {
-        testing.it("completes todo item", function() {
+        testing.it("does not delete completed todo item", function() {
             helpers.navigateToSite();
             helpers.addTodo("New todo item");
             helpers.completeTodo();
-
+            helpers.getTodoList().then(function(elements) {
+                assert.equal(elements.length, 1);
+            });
         });
-    });*/
+        // testing.it("marks a todo item as complete when the completed button is pressed", function() {
+        //     helpers.navigateToSite();
+        //     helpers.addTodo("New todo item");
+        //     helpers.completeTodo();
+        //     helpers.getTodoList().then(function(elements) {
+        //         console.log(elements);
+        //         assert.equal(elements[0].class, "completed");
+        //     });
+        //     helpers.getCompleted().then(function(elements) {
+        //         assert.equal(elements.length, 1);
+        //     });
+        //});
+    });
+
+    testing.describe("correctly counts the incomplete items", function() {
+        testing.it("counts multiple incomplete", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.getIncompleteText().then(function(text) {
+                assert.equal(text, "Number of incomplete items remaining: 4");
+            });
+        });
+        testing.it("decrements the count with completed", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.completeTodo();
+            helpers.getIncompleteText().then(function(text) {
+                assert.equal(text, "Number of incomplete items remaining: 2");
+            });
+        });
+    });
+
+    testing.describe("testing delete all complete button", function() {
+        testing.it("removes whole list when completed", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.completeTodo();
+            helpers.completeTodo();
+            helpers.deleteCompleted();
+            helpers.getTodoList().then(function(elements) {
+                assert.equal(elements.length, 0);
+            });
+        });
+        testing.it("removes only the completed items", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.completeTodo();
+            helpers.deleteCompleted();
+            helpers.getTodoList().then(function(elements) {
+                assert.equal(elements.length, 2);
+            });
+        });
+    });
+
+    testing.describe("testing the filter buttons", function() {
+        testing.it("shows the incomplete only when pressed", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.completeTodo();
+            helpers.filterIncomplete();
+            helpers.getTodoList().then(function(elements) {
+                assert.equal(elements.length, 2);
+            });
+        });
+        testing.it("shows the complete only when pressed", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.addTodo("New todo item");
+            helpers.completeTodo();
+            helpers.filterComplete();
+            helpers.getTodoList().then(function(elements) {
+                assert.equal(elements.length, 1);
+            });
+        });
+    });
 });

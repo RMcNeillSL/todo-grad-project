@@ -87,6 +87,28 @@ module.exports.completeTodo = function (text) {
     driver.findElement(webdriver.By.id("complete-todo")).click();
 };
 
+module.exports.getCompleted = function () {
+    var todoListPlaceholder = driver.findElements(webdriver.By.id("todo-list-placeholder"));
+    driver.wait(webdriver.until.elementIsNotVisible(todoListPlaceholder), 5000);
+    return driver.findElements(webdriver.By.css("completed"));
+};
+
+module.exports.getIncompleteText = function () {
+    return driver.findElement(webdriver.By.id("count-label")).getText();
+};
+
+module.exports.deleteCompleted = function () {
+    driver.findElement(webdriver.By.id("delete-complete")).click();
+};
+
+module.exports.filterIncomplete = function () {
+    driver.findElement(webdriver.By.id("filter-incomplete")).click();
+};
+
+module.exports.filterComplete = function () {
+    driver.findElement(webdriver.By.id("filter-complete")).click();
+};
+
 module.exports.setupErrorRoute = function(action, route) {
     if (action === "get") {
         router.get(route, function(req, res) {
