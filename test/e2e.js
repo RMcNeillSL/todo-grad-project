@@ -87,4 +87,13 @@ testing.describe("end to end", function() {
             });
         });
     });
+    /*
+    testing.describe("on complete todo item", function() {
+        testing.it("completes todo item", function() {
+            helpers.navigateToSite();
+            helpers.addTodo("New todo item");
+            helpers.completeTodo();
+
+        });
+    });*/
 });

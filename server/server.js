@@ -18,6 +18,7 @@ module.exports = function(port, middleware, callback) {
     app.post("/api/todo", function(req, res) {
         var todo = req.body;
         todo.id = latestId.toString();
+        todo.isComplete = false;        // Completed field
         latestId++;
         todos.push(todo);
         res.set("Location", "/api/todo/" + todo.id);
@@ -43,6 +44,19 @@ module.exports = function(port, middleware, callback) {
         }
     });
 
+    // Complete
+    app.put("/api/todo/:id", function(req, res) {
+        var id = req.params.id;
+        var todo = getTodo(id);
+
+        if (todo) {
+            todo.isComplete = true;
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(404);
+        }
+    });
+
     //Update
     app.post("/api/todo/:id", function(req, res) {
         var id = req.params.id;
@@ -50,7 +64,7 @@ module.exports = function(port, middleware, callback) {
         var updatedTodo = req.body;
         updatedTodo.id = id;
 
-        if(updatedTodo.id === existingTodo.id) {
+        if (updatedTodo.id === existingTodo.id) {
             existingTodo.title = updatedTodo.title;
             res.sendStatus(200);
         }

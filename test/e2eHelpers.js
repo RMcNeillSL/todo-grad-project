@@ -83,6 +83,10 @@ module.exports.deleteTodo = function () {
     driver.findElement(webdriver.By.id("delete-todo")).click();
 };
 
+module.exports.completeTodo = function (text) {
+    driver.findElement(webdriver.By.id("complete-todo")).click();
+};
+
 module.exports.setupErrorRoute = function(action, route) {
     if (action === "get") {
         router.get(route, function(req, res) {
