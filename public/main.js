@@ -62,7 +62,7 @@ function deleteTodo (event) {
     };
 }
 
-function deleteComplete () {
+function deleteComplete (event) {
     var deleteCompleteRequest = new XMLHttpRequest();
 
     deleteCompleteRequest.open("DELETE", "/api/todo/");
@@ -75,9 +75,9 @@ function deleteComplete () {
             reloadTodoList();
         }
         else {
-            error.textContent = "Failed to delete completed todo list items. Reason: "
+            error.textContent = "Failed to delete completed todo list items. Reason: " +
             this.status + " - " + this.responseText;
-        }        
+        }
     };
 }
 
@@ -99,14 +99,36 @@ function completeTodo (event) {
     };
 }
 
-function reloadTodoList() {
+function applyFilter (filter, event) {
+    var filterFunction;
+
+    if (filter == "complete") {
+        filterFunction = function (todo) { return todo.isComplete };
+    }
+    else if (filter == "incomplete") {
+        filterFunction = function (todo) { return todo.isComplete === false };
+    }
+    else {
+        filterFunction = function (todo) { return true };
+    }
+
+    reloadTodoList(filterFunction);
+}
+
+function reloadTodoList(filterFunction) {
     while (todoList.firstChild) {
         todoList.removeChild(todoList.firstChild);
     }
+
+    if (typeof filterFunction === "undefined") {
+        filterFunction = function(todo) { return true };
+    }
+
     var incomplete = 0;
     var complete = 0;
     todoListPlaceholder.style.display = "block";
     getTodoList(function(todos) {
+        todos = todos.filter(filterFunction);
         todoListPlaceholder.style.display = "none";
         todos.forEach(function(todo) {
 
@@ -143,10 +165,12 @@ function reloadTodoList() {
 
         });
 
-        if (complete > 0) {
+        if (complete > 0 ) {
             deleteCompleted.style.display = "inline";
         }
-
+        else {
+            deleteCompleted.style.display = "none";
+        }
         countLable.textContent = ("Number of incomplete items remaining: " + incomplete);
     });
 }

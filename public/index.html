@@ -10,6 +10,11 @@
         <header>
             <h1>TODO List</h1>
         </header>
+        <div>
+            <button id="filter-all" type="button" onclick="applyFilter('all')">Show all</button>
+            <button id="filter-incomplete" type="button" onclick="applyFilter('incomplete')">Show incomplete</button>
+            <button id="filter-complete" type="button" onclick="applyFilter('complete')">Show complete</button>
+        </div>
         <button id="delete-complete" type="button" onclick="deleteComplete()">Delete completed items</button>
         <div id="count-label"></div>
         <section>
