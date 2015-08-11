@@ -81,7 +81,7 @@ module.exports = function(port, middleware, callback) {
                 return todo.isComplete === false;
             });
             res.sendStatus(200);
-        } 
+        }
         catch (err) {
             res.sendStatus(404);
         }

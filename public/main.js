@@ -102,14 +102,14 @@ function completeTodo (event) {
 function applyFilter (filter, event) {
     var filterFunction;
 
-    if (filter == "complete") {
-        filterFunction = function (todo) { return todo.isComplete };
+    if (filter === "complete") {
+        filterFunction = function (todo) { return todo.isComplete; };
     }
-    else if (filter == "incomplete") {
-        filterFunction = function (todo) { return todo.isComplete === false };
+    else if (filter === "incomplete") {
+        filterFunction = function (todo) { return todo.isComplete === false; };
     }
     else {
-        filterFunction = function (todo) { return true };
+        filterFunction = function (todo) { return true; };
     }
 
     reloadTodoList(filterFunction);
@@ -121,7 +121,7 @@ function reloadTodoList(filterFunction) {
     }
 
     if (typeof filterFunction === "undefined") {
-        filterFunction = function(todo) { return true };
+        filterFunction = function(todo) { return true; };
     }
 
     var incomplete = 0;
@@ -165,7 +165,7 @@ function reloadTodoList(filterFunction) {
 
         });
 
-        if (complete > 0 ) {
+        if (complete > 0) {
             deleteCompleted.style.display = "inline";
         }
         else {
