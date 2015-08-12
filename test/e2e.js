@@ -110,6 +110,7 @@ testing.describe("end to end", function() {
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
+            helpers.waitToLoad();
             helpers.getIncompleteText().then(function(text) {
                 assert.equal(text, "Number of incomplete items remaining: 4");
             });
@@ -121,6 +122,7 @@ testing.describe("end to end", function() {
             helpers.addTodo("New todo item");
             helpers.waitToLoad();
             helpers.completeTodo();
+            helpers.waitToLoad();
             helpers.getIncompleteText().then(function(text) {
                 assert.equal(text, "Number of incomplete items remaining: 2");
             });

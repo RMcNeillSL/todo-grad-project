@@ -10,6 +10,7 @@ module.exports = function(port, middleware, callback) {
     }
     app.use(express.static("public"));
     app.use(bodyParser.json());
+    app.use("/fetch/", express.static("node_modules/whatwg-fetch"));
 
     var latestId = 0;
     var todos = [];

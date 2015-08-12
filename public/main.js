@@ -15,89 +15,121 @@ form.onsubmit = function(event) {
     event.preventDefault();
 };
 
-function createTodo(title, callback) {
-    var createRequest = new XMLHttpRequest();
-    createRequest.open("POST", "/api/todo");
-    createRequest.setRequestHeader("Content-type", "application/json");
-    createRequest.send(JSON.stringify({
-        title: title
-    }));
-    createRequest.onload = function() {
-        if (this.status === 201) {
+function createTodo (title, callback) {     // FETCH
+    var createRequest = document.querySelector("createRequest");
+
+    fetch("/api/todo", {
+        method: "post",
+        headers: {
+            "Accept": "application/json",
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            "title": title,
+        })
+    }).then(function (response) {
+        if (response.status === 201) {
             callback();
         } else {
-            error.textContent = "Failed to create item. Server returned " + this.status + " - " + this.responseText;
+            error.textContent = "Failed to create item. Server returned " + response.status +
+            " - " + response.statusText;
         }
-    };
+    }).catch(function (error) {
+        error.textContent = "Failed to create item";
+        console.log (error.statusText);
+    });
 }
 
-function getTodoList(callback) {
-    var createRequest = new XMLHttpRequest();
-    createRequest.open("GET", "/api/todo");
-    createRequest.onload = function() {
-        if (this.status === 200) {
-            callback(JSON.parse(this.responseText));
-        } else {
-            error.textContent = "Failed to get list. Server returned " + this.status + " - " + this.responseText;
-        }
-    };
-    createRequest.send();
+function getTodoList (callback) {       // FETCH
+    var createRequest = document.querySelector("createRequest");
+
+    fetch("/api/todo", {
+        method: "get"}).then(function (response) {
+            if (response.status === 200) {
+                return (response.json());
+            } else {
+                error.textContent = "Failed to get list. Server returned " +
+                response.status + " - " + response.statusText;
+            }
+        }).then(function (json) {
+            console.log (json);
+            callback (json);
+        }).catch(function (error) {
+            console.log ("Failed to get list");
+        });
 }
 
-function deleteTodo (event) {
-    var deleteRequest = new XMLHttpRequest();
+function deleteTodo (event) {           // FETCH
+    var deleteRequest = document.querySelector("deleteRequest");
     var currentID = this.getAttribute("data-id");
-    deleteRequest.open("DELETE", "/api/todo/" + currentID);
-    deleteRequest.send();
 
-    deleteRequest.onload = function() {
-        if (this.status === 200) {
-            //alert("Todo list item deleted");
+    fetch("/api/todo/" + currentID, {
+        method: "delete"
+    }).then(function (response) {
+        if (response.status === 200) {
             reloadTodoList();
-        }
-        else {
+        } else {
             error.textContent = "Failed to delete todo list item with ID " +
-            currentID + ".  Reason: " + this.status + " - " + this.responseText;
+            currentID + ". Server returned " + response.status + " - " + response.statusText;
         }
-    };
+    }).catch(function (error) {
+        console.log ("Failed to delete item");
+    });
 }
 
-function deleteComplete (event) {
-    var deleteCompleteRequest = new XMLHttpRequest();
+function deleteComplete (event) {       // FETCH
+    var deleteCompleteRequest = document.querySelector("deleteCompleteRequest");
 
-    deleteCompleteRequest.open("DELETE", "/api/todo/");
-    deleteCompleteRequest.send();
-
-    deleteCompleteRequest.onload = function() {
-        if (this.status === 200) {
-            //alert("Completed list items deleted");
+    fetch("/api/todo", {
+        method: "delete"
+    }).then(function (response) {
+        if (response.status === 200) {
             deleteCompleted.style.display = "none";
             reloadTodoList();
-        }
-        else {
+        } else {
             error.textContent = "Failed to delete completed todo list items. Reason: " +
             this.status + " - " + this.responseText;
         }
-    };
+    }).catch(function (error) {
+        console.log ("Failed to delete completed items");
+    });
 }
 
 function completeTodo (event) {
-    var completeRequest = new XMLHttpRequest();
+    var completeRequest = document.querySelector("completeRequest");
     var currentID = this.getAttribute("data-id");
-    completeRequest.open("PUT", "/api/todo/" + currentID);
-    completeRequest.send();
 
-    completeRequest.onload = function () {
-        if (this.status === 200) {
-            //alert("Todo list item updated");
+    fetch("/api/todo/" + currentID, {
+        method: "put"
+    }).then(function (response) {
+        if (response.status === 200) {
             reloadTodoList();
+        } else {
+            error.textContent = "Failed to delete completed todo list items. Reason: " +
+            response.status + " - " + response.responseText;
         }
-        else {
-            error.textContent = "Failed to update todo list item with ID " +
-            currentID + ".  Reason: " + this.status + " - " + this.responseText;
-        }
-    };
+    }).catch(function (error) {
+        console.log ("Failed to get list");
+    });
 }
+
+// function completeTodo (event) {
+//     var completeRequest = new XMLHttpRequest();
+//     var currentID = this.getAttribute("data-id");
+//     completeRequest.open("PUT", "/api/todo/" + currentID);
+//     completeRequest.send();
+
+//     completeRequest.onload = function () {
+//         if (this.status === 200) {
+//             //alert("Todo list item updated");
+//             reloadTodoList();
+//         }
+//         else {
+//             error.textContent = "Failed to update todo list item with ID " +
+//             currentID + ".  Reason: " + this.status + " - " + this.responseText;
+//         }
+//     };
+// }
 
 function applyFilter (filter, event) {
     var filterFunction;
