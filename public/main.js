@@ -52,7 +52,6 @@ function getTodoList (callback) {       // FETCH
                 response.status + " - " + response.statusText;
             }
         }).then(function (json) {
-            console.log (json);
             callback (json);
         }).catch(function (error) {
             console.log ("Failed to get list");
@@ -112,24 +111,6 @@ function completeTodo (event) {
         console.log ("Failed to get list");
     });
 }
-
-// function completeTodo (event) {
-//     var completeRequest = new XMLHttpRequest();
-//     var currentID = this.getAttribute("data-id");
-//     completeRequest.open("PUT", "/api/todo/" + currentID);
-//     completeRequest.send();
-
-//     completeRequest.onload = function () {
-//         if (this.status === 200) {
-//             //alert("Todo list item updated");
-//             reloadTodoList();
-//         }
-//         else {
-//             error.textContent = "Failed to update todo list item with ID " +
-//             currentID + ".  Reason: " + this.status + " - " + this.responseText;
-//         }
-//     };
-// }
 
 function applyFilter (filter, event) {
     var filterFunction;
@@ -208,3 +189,5 @@ function reloadTodoList(filterFunction) {
 }
 
 reloadTodoList();
+
+setInterval(reloadTodoList, 5000);
