@@ -109,6 +109,11 @@ module.exports.filterComplete = function () {
     driver.findElement(webdriver.By.id("filter-complete")).click();
 };
 
+module.exports.waitToLoad = function () {
+    var todoListPlaceholder = driver.findElement(webdriver.By.id("todo-list-placeholder"));
+    driver.wait(webdriver.until.elementIsNotVisible(todoListPlaceholder), 5000);
+};
+
 module.exports.setupErrorRoute = function(action, route) {
     if (action === "get") {
         router.get(route, function(req, res) {

@@ -1,7 +1,6 @@
 var testing = require("selenium-webdriver/testing");
 var assert = require("chai").assert;
 var helpers = require("./e2eHelpers");
-var expect = require("chai").expect;
 
 testing.describe("end to end", function() {
     this.timeout(20000);
@@ -72,6 +71,7 @@ testing.describe("end to end", function() {
         testing.it("removes todo item", function() {
             helpers.navigateToSite();
             helpers.addTodo("New todo item");
+            helpers.waitToLoad();
             helpers.deleteTodo();
             helpers.getTodoList().then(function(elements) {
                 assert.equal(elements.length, 0);
@@ -81,7 +81,9 @@ testing.describe("end to end", function() {
             helpers.navigateToSite();
             helpers.addTodo("New todo item");
             helpers.addTodo("Another new todo item");
+            helpers.waitToLoad();
             helpers.deleteTodo();
+            helpers.waitToLoad();
             helpers.deleteTodo();
             helpers.getTodoList().then(function(elements) {
                 assert.equal(elements.length, 0);
@@ -93,23 +95,12 @@ testing.describe("end to end", function() {
         testing.it("does not delete completed todo item", function() {
             helpers.navigateToSite();
             helpers.addTodo("New todo item");
+            helpers.waitToLoad();
             helpers.completeTodo();
             helpers.getTodoList().then(function(elements) {
                 assert.equal(elements.length, 1);
             });
         });
-        // testing.it("marks a todo item as complete when the completed button is pressed", function() {
-        //     helpers.navigateToSite();
-        //     helpers.addTodo("New todo item");
-        //     helpers.completeTodo();
-        //     helpers.getTodoList().then(function(elements) {
-        //         console.log(elements);
-        //         assert.equal(elements[0].class, "completed");
-        //     });
-        //     helpers.getCompleted().then(function(elements) {
-        //         assert.equal(elements.length, 1);
-        //     });
-        //});
     });
 
     testing.describe("correctly counts the incomplete items", function() {
@@ -128,6 +119,7 @@ testing.describe("end to end", function() {
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
+            helpers.waitToLoad();
             helpers.completeTodo();
             helpers.getIncompleteText().then(function(text) {
                 assert.equal(text, "Number of incomplete items remaining: 2");
@@ -140,8 +132,11 @@ testing.describe("end to end", function() {
             helpers.navigateToSite();
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
+            helpers.waitToLoad();
             helpers.completeTodo();
+            helpers.waitToLoad();
             helpers.completeTodo();
+            helpers.waitToLoad();
             helpers.deleteCompleted();
             helpers.getTodoList().then(function(elements) {
                 assert.equal(elements.length, 0);
@@ -152,6 +147,7 @@ testing.describe("end to end", function() {
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
+            helpers.waitToLoad();
             helpers.completeTodo();
             helpers.deleteCompleted();
             helpers.getTodoList().then(function(elements) {
@@ -166,6 +162,7 @@ testing.describe("end to end", function() {
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
+            helpers.waitToLoad();
             helpers.completeTodo();
             helpers.filterIncomplete();
             helpers.getTodoList().then(function(elements) {
@@ -177,6 +174,7 @@ testing.describe("end to end", function() {
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
             helpers.addTodo("New todo item");
+            helpers.waitToLoad();
             helpers.completeTodo();
             helpers.filterComplete();
             helpers.getTodoList().then(function(elements) {
