@@ -146,6 +146,7 @@ function reloadTodoList(filterFunction) {
         todos.forEach(function(todo) {
 
             var listItem = document.createElement("li");
+            var titleDiv = document.createElement("div");
             var deleteButton = document.createElement("button");
             var completeButton = document.createElement("button");
 
@@ -153,9 +154,12 @@ function reloadTodoList(filterFunction) {
             deleteButton.setAttribute ("id", "delete-todo");
             deleteButton.setAttribute("data-id", todo.id);
             deleteButton.onclick = deleteTodo;
+            deleteButton.className = "btn btn-danger";
+            completeButton.className = "btn btn-success";
 
-            listItem.textContent = todo.title;
-
+            titleDiv.textContent = todo.title;
+            titleDiv.id = "title-div";
+            listItem.appendChild(titleDiv);
             if (todo.isComplete === false) {
                 completeButton.textContent = "Complete";
                 completeButton.setAttribute ("data-id", todo.id);
@@ -163,7 +167,7 @@ function reloadTodoList(filterFunction) {
                 completeButton.onclick = completeTodo;
                 listItem.appendChild(completeButton);
             } else {
-                listItem.className = "completed";
+                titleDiv.className = "completed";
             }
 
             listItem.appendChild(deleteButton);
@@ -190,4 +194,4 @@ function reloadTodoList(filterFunction) {
 
 reloadTodoList();
 
-setInterval(reloadTodoList, 5000);
+// setInterval(reloadTodoList, 5000);
