@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="fetch/fetch.js"></script>
+    <meta charset="utf-8">
+            <title>TODO List</title>
+    <link href="main.css" rel="stylesheet" type="text/css">
+            <link rel="icon" type="image/ico" href="favicon.ico">
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<header>
+    <h1>TODO List</h1>
+</header>
+
+<div class="row">
+    <div class="col-md-2">
+        <button id="filter-all" type="button" class="btn btn-info btn-block" onclick="applyFilter('all')"><span class="glyphicon glyphicon-refresh"></span>Show All</button>
+    </div>
+    <div class="col-md-2">
+        <button id="filter-incomplete" type="button" class="btn btn-danger btn-block" onclick="applyFilter('incomplete')"><span class="glyphicon glyphicon-remove-sign"></span>Show Incomplete</button>
+    </div>
+    <div class="col-md-2">
+        <button id="filter-complete" type="button" class="btn btn-success btn-block" onclick="applyFilter('complete')"><span class="glyphicon glyphicon-ok-sign"></span>Show Complete</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <button ng-click="deleteComplete()" class="btn btn-danger btn-block" id="delete-complete">Delete Completed Items</button>
+    </div>
+</div>
+
+<div id="count-label" class="count"></div>
+<section>
+    <ul>
+        <li ng-repeat="todo in todos">
+            {{ todo.title }}
+            <button ng-click="completeTodo(todo)" class="btn btn-success btn-block" id="complete-todo">Complete</button>
+            <button ng-click="deleteTodo(todo)" class="btn btn-danger btn-block" id="delete-todo">Delete</button>
+        </li>
+    </ul>
+
+    <form id="todo-form">
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" placeholder="What needs to be done?" ng-model="newTodo">
+            </div>
+            <div class="col-md-2">
+                <button ng-click="createTodo(newTodo)" class="btn btn-success btn-block" id="submit-todo">Create</button>
+            </div>
+        </div>
+    </form>
+
+    <div id="error"></div>
+</section>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

@@ -25,7 +25,7 @@ function createTodo (title, callback) {     // FETCH
             "Content-type": "application/json"
         },
         body: JSON.stringify({
-            "title": title,
+            "title": title
         })
     }).then(function (response) {
         if (response.status === 201) {

@@ -1,11 +1,13 @@
 {
-  "curly": true,
-  "eqeqeq": true,
-  "immed": true,
-  "quotmark": "double",
-  "undef": true,
-  "browser": true,
+  "globalstrict": true,
   "globals": {
-    "console": true
+    "angular": false,
+    "describe": false,
+    "it": false,
+    "expect": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "module": false,
+    "inject": false
   }
 }
