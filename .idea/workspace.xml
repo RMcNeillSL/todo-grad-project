@@ -2,45 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="032e677e-9389-4ce5-9eb1-54117371f1a3" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\.bowerrc" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\README.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\components\version\interpolate-filter.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\components\version\interpolate-filter_test.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\components\version\version-directive.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\components\version\version-directive_test.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\components\version\version.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\components\version\version_test.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\index-async.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\view1\view1.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\view1\view1.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\view1\view1_test.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\view2\view2.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\view2\view2.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\app\view2\view2_test.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\bower.json" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\e2e-tests\protractor.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\e2e-tests\scenarios.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\karma.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\main.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\main.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Dev\workspace\todo-grad-project\public\package.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.jshintrc" afterPath="$PROJECT_DIR$/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/.jshintrc" afterPath="$PROJECT_DIR$/test/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/app.css" afterPath="$PROJECT_DIR$/public/app/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/app.js" afterPath="$PROJECT_DIR$/public/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/index.html" afterPath="$PROJECT_DIR$/public/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/main.css" afterPath="$PROJECT_DIR$/public/app/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/todo-grad-project.iml" afterPath="$PROJECT_DIR$/.idea/todo-grad-project.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/todoList/todoList.html" afterPath="$PROJECT_DIR$/public/app/todoList/todoList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/todoList/todoList.js" afterPath="$PROJECT_DIR$/public/app/todoList/todoList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/e2eHelpers.js" afterPath="$PROJECT_DIR$/test/e2eHelpers.js" />
     </list>
     <ignored path="todo-grad-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,11 +23,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="todoList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="todoList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/todoList/todoList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9053452">
+            <state vertical-scroll-proportion="0.0">
               <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="16" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="e2eHelpers.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/e2eHelpers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4922049">
+              <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="e2e.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/e2e.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -115,6 +107,7 @@
         <option value="$PROJECT_DIR$/public/app/todoList/todoList.html" />
         <option value="$PROJECT_DIR$/public/app/app.js" />
         <option value="$PROJECT_DIR$/public/app/todoList/todoList.js" />
+        <option value="$PROJECT_DIR$/test/e2eHelpers.js" />
       </list>
     </option>
   </component>
@@ -376,22 +369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/e2eHelpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32182628">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.18930958">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.94320714">
@@ -448,10 +425,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/e2e.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/todoList/todoList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9053452">
+        <state vertical-scroll-proportion="0.0">
           <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/e2eHelpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4922049">
+          <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
           <folding />
         </state>
       </provider>
