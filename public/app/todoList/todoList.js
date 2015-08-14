@@ -15,10 +15,22 @@ angular.module('myApp.view1', ['ngRoute'])
         $scope.filterFunction = function () { return true; };
 
         $scope.getTodoList = function () {
+            $scope.completeCount = 0;
+            $scope.incompleteCount = 0;
+
             $http.get("/api/todo").then(function (response) {
                 $scope.todos = response.data;
                 $scope.todos = $scope.todos.filter($scope.filterFunction);
-                console.log($scope.todos);
+
+                $scope.todos.forEach(function(todo) {
+                    if (todo.isComplete === true) {
+                        $scope.completeCount++;
+                    }
+                    else {
+                        $scope.incompleteCount++;
+                    }
+                })
+
             }, function (response) {
                 error.textContent = "Failed to get list. Server returned " +
                     response.status + " - " + response.statusText;
@@ -66,15 +78,12 @@ angular.module('myApp.view1', ['ngRoute'])
 
         $scope.applyFilter = function (filter) {
             if (filter === "complete") {
-                console.log("complete");
                 $scope.filterFunction = function (todo) { return todo.isComplete; };
             }
             else if (filter === "incomplete") {
-                console.log("incomplete");
                 $scope.filterFunction = function (todo) { return todo.isComplete === false; };
             }
             else {
-                console.log("all");
                 $scope.filterFunction = function () { return true; };
             }
             $scope.getTodoList();

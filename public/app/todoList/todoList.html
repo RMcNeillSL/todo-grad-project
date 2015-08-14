@@ -20,38 +20,45 @@
 <div class="row">
     <div class="col-md-2">
         <button ng-click="applyFilter()" class="btn btn-info btn-block" id="filter-all">Show All</button>
-        <!--<button id="filter-all" type="button" class="btn btn-info btn-block" onclick="applyFilter('all')"><span class="glyphicon glyphicon-refresh"></span>Show All</button>-->
     </div>
     <div class="col-md-2">
         <button ng-click="applyFilter('incomplete')" class="btn btn-danger btn-block" id="filter-incomplete">Show Incomplete</button>
-        <!--<button id="filter-incomplete" type="button" class="btn btn-danger btn-block" onclick="applyFilter('incomplete')"><span class="glyphicon glyphicon-remove-sign"></span>Show Incomplete</button>-->
     </div>
     <div class="col-md-2">
         <button ng-click="applyFilter('complete')" class="btn btn-success btn-block" id="filter-complete">Show Complete</button>
-        <!--<button id="filter-complete" type="button" class="btn btn-success btn-block" onclick="applyFilter('complete')"><span class="glyphicon glyphicon-ok-sign"></span>Show Complete</button>-->
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <button ng-click="deleteComplete()" class="btn btn-danger btn-block" id="delete-complete">Delete Completed Items</button>
+        <button ng-show="completeCount > 0" ng-click="deleteComplete()" class="btn btn-danger btn-block" id="delete-complete">Delete Completed Items</button>
     </div>
 </div>
 
-<div id="count-label" class="count"></div>
+<div id="count-label" class="count">Number of incomplete items remaining: {{incompleteCount}}</div>
 <section>
     <ul>
-        <li ng-repeat="todo in todos">
-            {{ todo.title }}
-            <button ng-click="completeTodo(todo)" class="btn btn-success btn-block" id="complete-todo">Complete</button>
-            <button ng-click="deleteTodo(todo)" class="btn btn-danger btn-block" id="delete-todo">Delete</button>
+        <li ng-repeat="todo in todos" class="listItems">
+            <div class="row">
+                    <div class="col-md-4">
+                        <span ng-class="{'completed' : todo.isComplete}">
+                            {{ todo.title }}
+                        </span>
+                    </div>
+                    <div class="col-md-2">
+                        <button ng-click="completeTodo(todo)" class="btn btn-success btn-block" id="complete-todo">Complete</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button ng-click="deleteTodo(todo)" class="btn btn-danger btn-block" id="delete-todo">Delete</button>
+                    </div>
+                </div>
         </li>
     </ul>
 
     <form id="todo-form">
         <div class="row">
             <div class="col-md-6">
-                <input type="text" placeholder="What needs to be done?" ng-model="newTodo">
+                <input type="text" placeholder="What needs to be done?" ng-model="newTodo" class="form-control">
             </div>
             <div class="col-md-2">
                 <button ng-click="createTodo(newTodo)" class="btn btn-success btn-block" id="submit-todo">Create</button>
