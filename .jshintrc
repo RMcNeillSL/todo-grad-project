@@ -4,5 +4,6 @@
   "immed": true,
   "quotmark": "double",
   "undef": true,
-  "node": true
+  "node": true,
+  "globals": {"console": true, "angular": true}
 }

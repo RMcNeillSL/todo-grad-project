@@ -46,7 +46,9 @@
                         </span>
                     </div>
                     <div class="col-md-2">
-                        <button ng-click="completeTodo(todo)" class="btn btn-success btn-block" id="complete-todo">Complete</button>
+                        <span ng-class="{'hidden' : todo.isComplete}">
+                            <button ng-click="completeTodo(todo)" class="btn btn-success btn-block" id="complete-todo">Complete</button>
+                        </span>
                     </div>
                     <div class="col-md-2">
                         <button ng-click="deleteTodo(todo)" class="btn btn-danger btn-block" id="delete-todo">Delete</button>
@@ -66,7 +68,7 @@
         </div>
     </form>
 
-    <div id="error"></div>
+    <div id="error">{{errorText}}</div>
 </section>
     <script type="text/javascript" src="main.js"></script>
 </body>
