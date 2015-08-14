@@ -1,84 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="fetch/fetch.js"></script>
-    <meta charset="utf-8">
-            <title>TODO List</title>
-    <link href="main.css" rel="stylesheet" type="text/css">
-            <link rel="icon" type="image/ico" href="favicon.ico">
-            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-</head>
-<body>
-
 <header>
     <h1>TODO List</h1>
 </header>
 
-<div class="row">
-    <div class="col-md-8">
-        <input id="search-todo" type="text" placeholder="Search" ng-model="searchTodo" class="form-control">
-    </div>
-</div>
+<section class="col-md-6 nopad">
 
-<div class="row">
-    <div class="col-md-2">
-        <button ng-click="applyFilter()" class="btn btn-info btn-block" id="filter-all"><span class="glyphicon glyphicon-refresh"></span> Show All</button>
-    </div>
-    <div class="col-md-2">
-        <button ng-click="applyFilter('incomplete')" class="btn btn-danger btn-block" id="filter-incomplete"><span class="glyphicon glyphicon-thumbs-down"></span> Show Incomplete</button>
-    </div>
-    <div class="col-md-2">
-        <button ng-click="applyFilter('complete')" class="btn btn-success btn-block" id="filter-complete"><span class="glyphicon glyphicon-thumbs-up"></span> Show Complete</button>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <button ng-show="completeCount > 0" ng-click="deleteComplete()" class="btn btn-danger btn-block" id="delete-complete"><span class="glyphicon glyphicon-trash"></span> Delete Completed Items</button>
-    </div>
-</div>
 
-<div id="count-label" class="count">Number of incomplete items remaining: {{incompleteCount}}</div>
-<section>
     <h2 id="todo-list-placeholder" ng-class="{'hidden' : todosReceived}">
         Loading...
     </h2>
+    <h1>TODO List Items:</h1>
     <ul id="todo-list">
         <li ng-repeat="todo in todos | filter:searchTodo" class="listItems">
             <div class="row">
-                    <div class="col-md-4">
+                <div class="col-md-8">
                         <span ng-class="{'completed' : todo.isComplete}">
                             {{ todo.title }}
                         </span>
-                    </div>
-                    <div class="col-md-1">
+                </div>
+                <div class="col-md-2">
                         <span ng-class="{'hidden' : todo.isComplete}">
                             <button ng-click="completeTodo(todo)" class="btn btn-success btn-block" id="complete-todo"><span class="glyphicon glyphicon-ok"></span></button>
                         </span>
-                    </div>
-                    <div class="col-md-1">
-                        <button ng-click="deleteTodo(todo)" class="btn btn-danger btn-block" id="delete-todo"><span class="glyphicon glyphicon-trash"></span></button>
-                    </div>
                 </div>
+                <div class="col-md-2">
+                    <button ng-click="deleteTodo(todo)" class="btn btn-danger btn-block" id="delete-todo"><span class="glyphicon glyphicon-trash"></span></button>
+                </div>
+            </div>
         </li>
     </ul>
+</section>
+
+<section class="col-md-6 nopad">
+
+    <div id="count-label" class="count">Number of incomplete items remaining: {{incompleteCount}}</div>
+    
+    <h1>Search</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <input id="search-todo" type="text" placeholder="Search" ng-model="searchTodo" class="form-control">
+        </div>
+    </div>
+
+    <h1>Filters</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <button ng-click="applyFilter()" class="btn btn-info btn-block" id="filter-all"><span class="glyphicon glyphicon-refresh"></span> Show All</button>
+        </div>
+        <div class="col-md-4">
+            <button ng-click="applyFilter('incomplete')" class="btn btn-danger btn-block" id="filter-incomplete"><span class="glyphicon glyphicon-thumbs-down"></span> Show Incomplete</button>
+        </div>
+        <div class="col-md-4">
+            <button ng-click="applyFilter('complete')" class="btn btn-success btn-block" id="filter-complete"><span class="glyphicon glyphicon-thumbs-up"></span> Show Complete</button>
+        </div>
+    </div>
+
+    <h1>Actions</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <button ng-show="completeCount > 0" ng-click="deleteComplete()" class="btn btn-danger btn-block" id="delete-complete"><span class="glyphicon glyphicon-trash"></span> Delete Completed Items</button>
+        </div>
+    </div>
 
     <form id="todo-form">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <input id="new-todo" type="text" placeholder="What needs to be done?" ng-model="newTodo" class="form-control">
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <button ng-click="createTodo(newTodo)" class="btn btn-success btn-block" id="submit-todo">Create</button>
             </div>
         </div>
     </form>
 
     <div id="error">{{errorText}}</div>
+
 </section>
-    <script type="text/javascript" src="main.js"></script>
-</body>
-</html>
