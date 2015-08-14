@@ -13,10 +13,12 @@ angular.module("myApp.todoList", ["ngRoute"])
         $scope.todos = [];
         $scope.newTodo = "";
         $scope.filterFunction = function () { return true; };
+        $scope.todosReceived = false;
 
         $scope.getTodoList = function () {
             $scope.completeCount = 0;
             $scope.incompleteCount = 0;
+            $scope.todosReceived = true;
 
             $http.get("/api/todo").then(function (response) {
                 $scope.todos = response.data;

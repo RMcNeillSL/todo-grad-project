@@ -37,7 +37,10 @@
 
 <div id="count-label" class="count">Number of incomplete items remaining: {{incompleteCount}}</div>
 <section>
-    <ul>
+    <h2 id="todo-list-placeholder" ng-class="{'hidden' : todosReceived}">
+        Loading...
+    </h2>
+    <ul id="todo-list">
         <li ng-repeat="todo in todos" class="listItems">
             <div class="row">
                     <div class="col-md-4">
@@ -60,7 +63,7 @@
     <form id="todo-form">
         <div class="row">
             <div class="col-md-6">
-                <input type="text" placeholder="What needs to be done?" ng-model="newTodo" class="form-control">
+                <input id="new-todo" type="text" placeholder="What needs to be done?" ng-model="newTodo" class="form-control">
             </div>
             <div class="col-md-2">
                 <button ng-click="createTodo(newTodo)" class="btn btn-success btn-block" id="submit-todo">Create</button>

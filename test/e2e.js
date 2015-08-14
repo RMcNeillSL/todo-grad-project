@@ -133,9 +133,6 @@ testing.describe("end to end", function() {
         testing.it("removes whole list when completed", function() {
             helpers.navigateToSite();
             helpers.addTodo("New todo item");
-            helpers.addTodo("New todo item");
-            helpers.waitToLoad();
-            helpers.completeTodo();
             helpers.waitToLoad();
             helpers.completeTodo();
             helpers.waitToLoad();
