@@ -25,9 +25,9 @@ button {
     text-align: center;
     border-radius: 4px;
     padding: 5px;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     box-shadow: 0 0 10px #000000;
 }
 
@@ -88,8 +88,7 @@ h1 {
     font-family: 'Raleway', sans-serif;
 }
 
-ul
-{
+ul{
     margin: 10px;
     padding: 0px;
     list-style-type: none;
