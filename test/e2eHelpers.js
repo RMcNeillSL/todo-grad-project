@@ -23,11 +23,12 @@ module.exports.setupDriver = function() {
 module.exports.setupServer = function(done) {
     router = express.Router();
     if (gatheringCoverage) {
-        router.get("/app/app.js", function(req, res) {
+        router.get("/app.js", function(req, res) {
             var absPath = path.join(__dirname, "..", "public", req.path);
             res.send(instrumenter.instrumentSync(fs.readFileSync("public/" + req.path, "utf8"), absPath));
         });
-        router.get("/app/todoList", function(req, res) {
+
+        router.get("/todoListView", function(req, res) {
             var absPath = path.join(__dirname, "..", "public", req.path);
             res.send(instrumenter.instrumentSync(fs.readFileSync("public/" + req.path, "utf8"), absPath));
         });

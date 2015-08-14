@@ -4,7 +4,7 @@ angular.module("myApp.todoList", ["ngRoute"])
 
     .config(["$routeProvider", function ($routeProvider) {
         $routeProvider.when("/todoList", {
-            templateUrl: "todoList/todoList.html",
+            templateUrl: "/todoList/todoList.html",
             controller: "todoListCtrl"
         });
     }])
