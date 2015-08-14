@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="032e677e-9389-4ce5-9eb1-54117371f1a3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/todoList/todoList.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/todoList/todoList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/todo_grad_project_node_modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/.jshintrc" afterPath="$PROJECT_DIR$/public/.jshintrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/main.js" afterPath="$PROJECT_DIR$/public/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/todoList/todoList.html" afterPath="$PROJECT_DIR$/public/app/todoList/todoList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/todoList/todoList.js" afterPath="$PROJECT_DIR$/public/app/todoList/todoList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="todo-grad-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,14 +24,14 @@
     <favorites_list name="todo-grad-project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.57052094">
+    <splitter split-orientation="horizontal" split-proportion="0.4834816">
       <split-first>
         <leaf>
           <file leaf-file-name="todoList.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/app/todoList/todoList.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.28396437">
-                  <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+                <state vertical-scroll-proportion="0.8106904">
+                  <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -44,8 +40,8 @@
           <file leaf-file-name="todoList.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/app/todoList/todoList.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-21.115385">
-                  <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+                <state vertical-scroll-proportion="-16.346153">
+                  <caret line="25" column="49" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="49" />
                   <folding />
                 </state>
               </provider>
@@ -68,8 +64,8 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.33333334">
-                  <caret line="143" column="28" selection-start-line="143" selection-start-column="22" selection-end-line="143" selection-end-column="28" />
+                <state vertical-scroll-proportion="2.732143">
+                  <caret line="135" column="45" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
                   <folding />
                 </state>
               </provider>
@@ -124,9 +120,9 @@
         <option value="$PROJECT_DIR$/public/app/index.html" />
         <option value="$PROJECT_DIR$/public/app/app.js" />
         <option value="$PROJECT_DIR$/public/main.js" />
-        <option value="$PROJECT_DIR$/public/app/todoList/todoList.js" />
         <option value="$PROJECT_DIR$/public/app/main.css" />
         <option value="$PROJECT_DIR$/public/app/todoList/todoList.html" />
+        <option value="$PROJECT_DIR$/public/app/todoList/todoList.js" />
       </list>
     </option>
   </component>
@@ -535,24 +531,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/todoList/todoList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.115385">
-          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="143" column="28" selection-start-line="143" selection-start-column="22" selection-end-line="143" selection-end-column="28" />
+        <state vertical-scroll-proportion="-16.346153">
+          <caret line="25" column="49" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/todoList/todoList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28396437">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.8106904">
+          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.732143">
+          <caret line="135" column="45" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
           <folding />
         </state>
       </provider>

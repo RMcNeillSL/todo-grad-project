@@ -12,10 +12,12 @@ angular.module('myApp.view1', ['ngRoute'])
     .controller('todoListCtrl', ["$scope", "$http", function ($scope, $http) {
         $scope.todos = [];
         $scope.newTodo = "";
+        $scope.filterFunction = function () { return true; };
 
         $scope.getTodoList = function () {
             $http.get("/api/todo").then(function (response) {
                 $scope.todos = response.data;
+                $scope.todos = $scope.todos.filter($scope.filterFunction);
                 console.log($scope.todos);
             }, function (response) {
                 error.textContent = "Failed to get list. Server returned " +
@@ -63,17 +65,19 @@ angular.module('myApp.view1', ['ngRoute'])
         }
 
         $scope.applyFilter = function (filter) {
-            var filterFunction;
-
             if (filter === "complete") {
-                filterFunction = function (todo) { return todo.isComplete; };
+                console.log("complete");
+                $scope.filterFunction = function (todo) { return todo.isComplete; };
             }
             else if (filter === "incomplete") {
-                filterFunction = function (todo) { return todo.isComplete === false; };
+                console.log("incomplete");
+                $scope.filterFunction = function (todo) { return todo.isComplete === false; };
             }
             else {
-                filterFunction = function () { return true; };
+                console.log("all");
+                $scope.filterFunction = function () { return true; };
             }
+            $scope.getTodoList();
         }
 
         $scope.getTodoList();

@@ -19,13 +19,16 @@
 
 <div class="row">
     <div class="col-md-2">
-        <button id="filter-all" type="button" class="btn btn-info btn-block" onclick="applyFilter('all')"><span class="glyphicon glyphicon-refresh"></span>Show All</button>
+        <button ng-click="applyFilter()" class="btn btn-info btn-block" id="filter-all">Show All</button>
+        <!--<button id="filter-all" type="button" class="btn btn-info btn-block" onclick="applyFilter('all')"><span class="glyphicon glyphicon-refresh"></span>Show All</button>-->
     </div>
     <div class="col-md-2">
-        <button id="filter-incomplete" type="button" class="btn btn-danger btn-block" onclick="applyFilter('incomplete')"><span class="glyphicon glyphicon-remove-sign"></span>Show Incomplete</button>
+        <button ng-click="applyFilter('incomplete')" class="btn btn-danger btn-block" id="filter-incomplete">Show Incomplete</button>
+        <!--<button id="filter-incomplete" type="button" class="btn btn-danger btn-block" onclick="applyFilter('incomplete')"><span class="glyphicon glyphicon-remove-sign"></span>Show Incomplete</button>-->
     </div>
     <div class="col-md-2">
-        <button id="filter-complete" type="button" class="btn btn-success btn-block" onclick="applyFilter('complete')"><span class="glyphicon glyphicon-ok-sign"></span>Show Complete</button>
+        <button ng-click="applyFilter('complete')" class="btn btn-success btn-block" id="filter-complete">Show Complete</button>
+        <!--<button id="filter-complete" type="button" class="btn btn-success btn-block" onclick="applyFilter('complete')"><span class="glyphicon glyphicon-ok-sign"></span>Show Complete</button>-->
     </div>
 </div>
 
