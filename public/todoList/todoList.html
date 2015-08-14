@@ -1,48 +1,40 @@
 <header>
-    <h1>TODO List</h1>
+    <h1>My Second TODO Website</h1>
 </header>
 
 <section class="col-md-6 nopad">
-
-
-
     <h2 id="todo-list-placeholder" ng-class="{'hidden' : todosReceived}">
         Loading...
     </h2>
-    <h1>TODO List Items:</h1>
-    <ul id="todo-list">
-        <li ng-repeat="todo in todos | filter:searchTodo" class="listItems">
-            <div class="row">
-                <div class="col-md-8">
-                        <span ng-class="{'completed' : todo.isComplete}">
+    <h2>TODO List Items:</h2>
+
+    <table class="table table-striped" id="todo-list">
+        <tr ng-repeat="todo in todos | filter:searchTodo">
+            <td>
+                <span ng-class="{'completed' : todo.isComplete}">
                             {{ todo.title }}
-                        </span>
-                </div>
-                <div class="col-md-2">
-                        <span ng-class="{'hidden' : todo.isComplete}">
-                            <button ng-click="completeTodo(todo)" class="btn btn-success btn-block" id="complete-todo"><span class="glyphicon glyphicon-ok"></span></button>
-                        </span>
-                </div>
-                <div class="col-md-2">
-                    <button ng-click="deleteTodo(todo)" class="btn btn-danger btn-block" id="delete-todo"><span class="glyphicon glyphicon-trash"></span></button>
-                </div>
-            </div>
-        </li>
-    </ul>
+                </span>
+                <button ng-click="deleteTodo(todo)" class="btn btn-danger small" id="delete-todo"><span class="glyphicon glyphicon-trash"></span></button>
+                <span ng-class="{'hidden' : todo.isComplete}">
+                    <button ng-click="completeTodo(todo)" class="btn btn-success small" id="complete-todo"><span class="glyphicon glyphicon-ok"></span></button>
+                </span>
+            </td>
+        </tr>
+    </table>
 </section>
 
 <section class="col-md-6 nopad">
 
     <div id="count-label" class="count">Number of incomplete items remaining: {{incompleteCount}}</div>
-    
-    <h1>Search</h1>
+
+    <h2>Search</h2>
     <div class="row">
         <div class="col-md-12">
             <input id="search-todo" type="text" placeholder="Search" ng-model="searchTodo" class="form-control">
         </div>
     </div>
 
-    <h1>Filters</h1>
+    <h2>Filters</h2>
     <div class="row">
         <div class="col-md-4">
             <button ng-click="applyFilter()" class="btn btn-info btn-block" id="filter-all"><span class="glyphicon glyphicon-refresh"></span> Show All</button>
@@ -55,13 +47,8 @@
         </div>
     </div>
 
-    <h1>Actions</h1>
-    <div class="row">
-        <div class="col-md-12">
-            <button ng-show="completeCount > 0" ng-click="deleteComplete()" class="btn btn-danger btn-block" id="delete-complete"><span class="glyphicon glyphicon-trash"></span> Delete Completed Items</button>
-        </div>
-    </div>
-
+    <h2>Actions</h2>
+    <h3>Add New TODO</h3>
     <form id="todo-form">
         <div class="row">
             <div class="col-md-8">
@@ -72,6 +59,18 @@
             </div>
         </div>
     </form>
+
+    <span ng-show="completeCount > 0">
+        <h3>Delete Complete</h3>
+    </span>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button ng-show="completeCount > 0" ng-click="deleteComplete()" class="btn btn-danger btn-block" id="delete-complete"><span class="glyphicon glyphicon-trash"></span> Delete Completed Items</button>
+        </div>
+    </div>
+
+
 
     <div id="error">{{errorText}}</div>
 
